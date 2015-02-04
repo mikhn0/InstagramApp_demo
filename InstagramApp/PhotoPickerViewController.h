@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  PhotoPickerViewController.h
 //  InstagramApp
 //
 //  Created by Виктория on 03.02.15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController <IGSessionDelegate>
-
+@interface PhotoPickerViewController : UICollectionViewController <IGRequestDelegate>
 
 @end
-

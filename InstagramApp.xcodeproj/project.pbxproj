@@ -14,6 +14,14 @@
 		753A9C671A802A0C0026204A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 753A9C661A802A0C0026204A /* Images.xcassets */; };
 		753A9C6A1A802A0C0026204A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 753A9C681A802A0C0026204A /* LaunchScreen.xib */; };
 		753A9C761A802A0C0026204A /* InstagramAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 753A9C751A802A0C0026204A /* InstagramAppTests.m */; };
+		753A9C811A802B860026204A /* PhotoPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 753A9C801A802B860026204A /* PhotoPickerViewController.m */; };
+		753A9C881A802BCC0026204A /* IGRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 753A9C851A802BCC0026204A /* IGRequest.m */; };
+		753A9C891A802BCC0026204A /* Instagram.m in Sources */ = {isa = PBXBuildFile; fileRef = 753A9C871A802BCC0026204A /* Instagram.m */; };
+		753A9C8D1A803D1C0026204A /* PhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 753A9C8C1A803D1C0026204A /* PhotoCollectionViewCell.m */; };
+		753A9C901A815EA70026204A /* selected_photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 753A9C8F1A815EA70026204A /* selected_photo@2x.png */; };
+		753A9C921A8181190026204A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753A9C911A8181190026204A /* CoreGraphics.framework */; };
+		753A9C951A8184EE0026204A /* CollageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 753A9C941A8184EE0026204A /* CollageViewController.m */; };
+		753A9C971A81C6C00026204A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753A9C961A81C6BF0026204A /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +48,21 @@
 		753A9C6F1A802A0C0026204A /* InstagramAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstagramAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		753A9C741A802A0C0026204A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		753A9C751A802A0C0026204A /* InstagramAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstagramAppTests.m; sourceTree = "<group>"; };
+		753A9C7F1A802B860026204A /* PhotoPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoPickerViewController.h; sourceTree = "<group>"; };
+		753A9C801A802B860026204A /* PhotoPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoPickerViewController.m; sourceTree = "<group>"; };
+		753A9C831A802BCC0026204A /* IGConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGConnect.h; sourceTree = "<group>"; };
+		753A9C841A802BCC0026204A /* IGRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGRequest.h; sourceTree = "<group>"; };
+		753A9C851A802BCC0026204A /* IGRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGRequest.m; sourceTree = "<group>"; };
+		753A9C861A802BCC0026204A /* Instagram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Instagram.h; sourceTree = "<group>"; };
+		753A9C871A802BCC0026204A /* Instagram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Instagram.m; sourceTree = "<group>"; };
+		753A9C8A1A802C560026204A /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		753A9C8B1A803D1C0026204A /* PhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCollectionViewCell.h; sourceTree = "<group>"; };
+		753A9C8C1A803D1C0026204A /* PhotoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCollectionViewCell.m; sourceTree = "<group>"; };
+		753A9C8F1A815EA70026204A /* selected_photo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "selected_photo@2x.png"; sourceTree = "<group>"; };
+		753A9C911A8181190026204A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		753A9C931A8184EE0026204A /* CollageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollageViewController.h; sourceTree = "<group>"; };
+		753A9C941A8184EE0026204A /* CollageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollageViewController.m; sourceTree = "<group>"; };
+		753A9C961A81C6BF0026204A /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +70,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				753A9C971A81C6C00026204A /* MessageUI.framework in Frameworks */,
+				753A9C921A8181190026204A /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +88,9 @@
 		753A9C4D1A802A0C0026204A = {
 			isa = PBXGroup;
 			children = (
+				753A9C961A81C6BF0026204A /* MessageUI.framework */,
+				753A9C911A8181190026204A /* CoreGraphics.framework */,
+				753A9C821A802BCC0026204A /* instagram-ios-sdk */,
 				753A9C581A802A0C0026204A /* InstagramApp */,
 				753A9C721A802A0C0026204A /* InstagramAppTests */,
 				753A9C571A802A0C0026204A /* Products */,
@@ -89,6 +117,12 @@
 				753A9C661A802A0C0026204A /* Images.xcassets */,
 				753A9C681A802A0C0026204A /* LaunchScreen.xib */,
 				753A9C591A802A0C0026204A /* Supporting Files */,
+				753A9C7F1A802B860026204A /* PhotoPickerViewController.h */,
+				753A9C801A802B860026204A /* PhotoPickerViewController.m */,
+				753A9C8B1A803D1C0026204A /* PhotoCollectionViewCell.h */,
+				753A9C8C1A803D1C0026204A /* PhotoCollectionViewCell.m */,
+				753A9C931A8184EE0026204A /* CollageViewController.h */,
+				753A9C941A8184EE0026204A /* CollageViewController.m */,
 			);
 			path = InstagramApp;
 			sourceTree = "<group>";
@@ -96,8 +130,10 @@
 		753A9C591A802A0C0026204A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				753A9C8E1A815E9A0026204A /* images */,
 				753A9C5A1A802A0C0026204A /* Info.plist */,
 				753A9C5B1A802A0C0026204A /* main.m */,
+				753A9C8A1A802C560026204A /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -117,6 +153,26 @@
 				753A9C741A802A0C0026204A /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		753A9C821A802BCC0026204A /* instagram-ios-sdk */ = {
+			isa = PBXGroup;
+			children = (
+				753A9C831A802BCC0026204A /* IGConnect.h */,
+				753A9C841A802BCC0026204A /* IGRequest.h */,
+				753A9C851A802BCC0026204A /* IGRequest.m */,
+				753A9C861A802BCC0026204A /* Instagram.h */,
+				753A9C871A802BCC0026204A /* Instagram.m */,
+			);
+			path = "instagram-ios-sdk";
+			sourceTree = "<group>";
+		};
+		753A9C8E1A815E9A0026204A /* images */ = {
+			isa = PBXGroup;
+			children = (
+				753A9C8F1A815EA70026204A /* selected_photo@2x.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +255,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				753A9C901A815EA70026204A /* selected_photo@2x.png in Resources */,
 				753A9C651A802A0C0026204A /* Main.storyboard in Resources */,
 				753A9C6A1A802A0C0026204A /* LaunchScreen.xib in Resources */,
 				753A9C671A802A0C0026204A /* Images.xcassets in Resources */,
@@ -219,7 +276,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				753A9C951A8184EE0026204A /* CollageViewController.m in Sources */,
+				753A9C8D1A803D1C0026204A /* PhotoCollectionViewCell.m in Sources */,
+				753A9C881A802BCC0026204A /* IGRequest.m in Sources */,
 				753A9C621A802A0C0026204A /* ViewController.m in Sources */,
+				753A9C891A802BCC0026204A /* Instagram.m in Sources */,
+				753A9C811A802B860026204A /* PhotoPickerViewController.m in Sources */,
 				753A9C5F1A802A0C0026204A /* AppDelegate.m in Sources */,
 				753A9C5C1A802A0C0026204A /* main.m in Sources */,
 			);
@@ -343,6 +405,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = InstagramApp/PrefixHeader.pch;
 				INFOPLIST_FILE = InstagramApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -353,6 +417,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = InstagramApp/PrefixHeader.pch;
 				INFOPLIST_FILE = InstagramApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

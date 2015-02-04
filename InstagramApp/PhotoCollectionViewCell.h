@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  PhotoCollectionViewCell.h
 //  InstagramApp
 //
 //  Created by Виктория on 03.02.15.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController <IGSessionDelegate>
+@interface PhotoCollectionViewCell : UICollectionViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *imageCell;
 
 @end
-

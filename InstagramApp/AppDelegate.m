@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
+
+#define APP_ID @"fd725621c5e44198a5b8ad3f7a0ffa09"
 
 @interface AppDelegate ()
 
@@ -14,10 +17,31 @@
 
 @implementation AppDelegate
 
+@synthesize window = _window;
+@synthesize instagram = _instagram;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    //self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    self.instagram = [[Instagram alloc] initWithClientId:APP_ID
+                                                delegate:nil];
+    
+    //ViewController *viewController = [[ViewController alloc] init];
+    //UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    
+    //self.window.rootViewController = navController;
+    //[self.window makeKeyAndVisible];
     return YES;
+    
+}
+
+-(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    return [self.instagram handleOpenURL:url];
+}
+
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [self.instagram handleOpenURL:url];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
