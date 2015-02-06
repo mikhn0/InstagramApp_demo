@@ -39,6 +39,7 @@
                     <navigationItem key="navigationItem" id="vzi-Sk-ssm"/>
                     <connections>
                         <outlet property="addCollageButton" destination="cO5-7Y-H6U" id="gei-GY-XoX"/>
+                        <outlet property="nikName" destination="SSG-8S-quL" id="BOk-oJ-pYE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -84,9 +85,9 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="CD2-TZ-YRk">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="v1U-hJ-28q">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="v1U-hJ-28q">
                             <connections>
-                                <action selector="logoutButtonTouched:" destination="SG5-lM-BUc" id="6MQ-hO-NlI"/>
+                                <action selector="backButtonTouched:" destination="SG5-lM-BUc" id="J9k-w8-Eem"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Upload" width="10" id="nbI-Vo-jwn">

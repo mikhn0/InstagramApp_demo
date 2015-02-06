@@ -50,8 +50,6 @@
             NSData *imgData=[NSData dataWithContentsOfURL:imgURL];
             [[UIImage imageWithData:imgData] drawInRect:CGRectMake(x, y, width, height)];
         }
-        
-        
         UIImage *finalImage =  UIGraphicsGetImageFromCurrentImageContext();
         _collageView.image = finalImage;
         UIGraphicsEndImageContext();
@@ -77,12 +75,12 @@
     [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
 - (void)setArrayOfImage:(NSArray *)arrayOfImage {
     imageArray = arrayOfImage;
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
 }
 
 @end

@@ -14,13 +14,14 @@
 @interface PhotoPickerViewController ()
 {
     NSMutableArray *selectedPhotos;
+    NSString *userName;
 }
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *shareButton;
-@property (strong, nonatomic) NSArray *data;
+@property (strong, nonatomic) NSMutableArray *data;
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 - (IBAction)shareButtonTouched:(id)sender;
-- (IBAction)logoutButtonTouched:(id)sender;
+- (IBAction)backButtonTouched:(id)sender;
 
 @end
 
@@ -31,16 +32,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     selectedPhotos = [NSMutableArray new];
-    self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"My photos";
-    
     AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    NSArray *separateAccessToken = [appDelegate.instagram.accessToken componentsSeparatedByString:@"."];
-    NSUInteger userID = (separateAccessToken.count > 0) ? [separateAccessToken[0] integerValue] : 0;
-    NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"users/%lu/media/recent",(unsigned long)userID], @"method", nil];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"users/search"], @"method", userName, @"q", nil];
     [appDelegate.instagram requestWithParams:params
                                     delegate:self];
+    
     self.collectionView.allowsMultipleSelection = YES;
+}
+
+- (void)setNikName:(NSString *)nikName {
+    userName = nikName;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -92,8 +94,6 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"prepareForSegue: %@", segue.identifier);
-    
     if ([segue.identifier isEqualToString:@"showCollage"]) {
         [segue.destinationViewController setArrayOfImage:selectedPhotos];
     }
@@ -110,9 +110,7 @@
         [self.shareButton setStyle:UIBarButtonItemStylePlain];
 }
 
-- (IBAction)logoutButtonTouched:(id)sender {
-    AppDelegate* appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-    [appDelegate.instagram logout];
+- (IBAction)backButtonTouched:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -131,7 +129,17 @@
 
 - (void)request:(IGRequest *)request didLoad:(id)result {
     NSLog(@"Instagram did load: %@", result);
-    self.data = (NSArray*)[result objectForKey:@"data"];
+    self.data = [[result objectForKey:@"data"] mutableCopy];
+    
+    if (self.data.count && self.data[0][@"username"]) {
+        AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        NSInteger userID = [self.data[0][@"id"] integerValue ];
+        NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"users/%lu/media/recent",(unsigned long)userID], @"method",  nil];
+        [appDelegate.instagram requestWithParams:params
+                                        delegate:self];
+        [self.data removeObjectAtIndex:0];
+    }
+    
     [self.collectionView reloadData];
     [self.collectionView layoutIfNeeded];
 }

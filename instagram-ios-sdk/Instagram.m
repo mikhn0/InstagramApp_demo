@@ -204,6 +204,11 @@ static void *finishedContext            = @"finishedContext";
     NSString * methodName = [params objectForKey:@"method"];
     [params removeObjectForKey:@"method"];
     
+    
+    NSLog(@"dictionary params ================================ %@", params);
+    
+    
+    
     return [self requestWithMethodName:methodName
                                 params:params
                             httpMethod:@"GET"

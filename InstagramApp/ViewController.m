@@ -13,6 +13,7 @@
 @interface ViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *addCollageButton;
+@property (weak, nonatomic) IBOutlet UITextField *nikName;
 
 @end
 
@@ -21,54 +22,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _addCollageButton.layer.cornerRadius = 5.0;
-    [_addCollageButton addTarget:self
-                    action:@selector(login)
-          forControlEvents:UIControlEventTouchUpInside];
-    
-
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"prepareForSegue: %@", segue.identifier);
-        
     if ([segue.identifier isEqualToString:@"showPhotoPicker"]) {
-        AppDelegate* appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-        
-        appDelegate.instagram.accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"];
-        appDelegate.instagram.sessionDelegate = self;
-        if (![appDelegate.instagram isSessionValid]) {
-            [appDelegate.instagram authorize:[NSArray arrayWithObjects:@"basic", nil]];
+        if (self.nikName.text.length) {
+            AppDelegate* appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+            
+            appDelegate.instagram.accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"];
+            appDelegate.instagram.sessionDelegate = self;
+            
+            if (![appDelegate.instagram isSessionValid]) {
+                [appDelegate.instagram authorize:[NSArray arrayWithObjects:@"basic", nil]];
+            }
+            [segue.destinationViewController setNikName:self.nikName.text];
         }
-        //[segue.destinationViewController setHappiness:100];
     }
 }
 
-
-- (void)viewDidUnload {
-    [super viewDidUnload];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-}
-
--(void)login {
-    AppDelegate* appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-    [appDelegate.instagram authorize:[NSArray arrayWithObjects:@"basic", nil]];
-}
 
 #pragma - IGSessionDelegate
 
 -(void)igDidLogin {
     NSLog(@"Instagram did login");
-    // here i can store accessToken
     AppDelegate* appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     [[NSUserDefaults standardUserDefaults] setObject:appDelegate.instagram.accessToken forKey:@"accessToken"];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    
-    //PhotoPickerViewController* viewController = [[PhotoPickerViewController alloc] init];
-    //[self.navigationController pushViewController:viewController animated:YES];
 }
 
 -(void)igDidNotLogin:(BOOL)cancelled {
@@ -89,7 +69,6 @@
 
 -(void)igDidLogout {
     NSLog(@"Instagram did logout");
-    // remove the accessToken
     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"accessToken"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }

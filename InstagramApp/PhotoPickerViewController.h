@@ -10,4 +10,6 @@
 
 @interface PhotoPickerViewController : UICollectionViewController <IGRequestDelegate>
 
+- (void)setNikName:(NSString *)nikName;
+
 @end
