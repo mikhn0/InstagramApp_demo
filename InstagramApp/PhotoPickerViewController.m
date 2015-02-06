@@ -61,9 +61,14 @@
     PhotoCollectionViewCell *photoCollectionCell = (PhotoCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:photoCellIdentifier forIndexPath:indexPath];
     
     NSURL *imgURL=[NSURL URLWithString:[[self getImageData:indexPath] objectForKey:@"url"]];
-    NSData *imgData=[NSData dataWithContentsOfURL:imgURL];
-    photoCollectionCell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithData:imgData]];
-    photoCollectionCell.selectedBackgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"selected_photo"]];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSData *imgData=[NSData dataWithContentsOfURL:imgURL];
+        UIImage *thumbImage = [UIImage imageWithData:imgData];
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            photoCollectionCell.backgroundColor = [UIColor colorWithPatternImage:thumbImage];
+            photoCollectionCell.selectedBackgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"selected_photo"]];
+        });
+    });
     return photoCollectionCell;
 }
 
